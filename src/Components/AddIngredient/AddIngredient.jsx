@@ -10,7 +10,7 @@ const AddIngredient = (props) => (
       name="text"
       value={props.text}
       onChange={props.handleChange}
-              />
+      />
       <button > Add Ingredient </button>
     </form>
   </div>

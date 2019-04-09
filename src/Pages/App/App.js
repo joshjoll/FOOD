@@ -18,8 +18,17 @@ class App extends Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.setState({
+      ingredients: this.state.ingredients.concat([this.state.text])
+    });
+    console.log('submit test');
+    this.setState({ text: '' });
+  };
 
   render() {
     return (
@@ -30,6 +39,7 @@ class App extends Component {
           recipeMatch={this.state.recipeMatch}
           text={this.state.text}
           handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
         />
         <ProfilePage />
       </div>
