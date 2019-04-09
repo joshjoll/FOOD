@@ -12,6 +12,7 @@ const IngredientArea = (props) => (
     />
     <IngredientRow
       ingredients={props.ingredients}
+      handleRemove={props.handleRemove}
     />
   </div>
 );
