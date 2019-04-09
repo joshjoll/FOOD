@@ -8,6 +8,7 @@ const IngredientArea = (props) => (
     <AddIngredient
     text={props.text}
     handleChange={props.handleChange}
+    handleSubmit={props.handleSubmit}
     />
     <IngredientRow
       ingredients={props.ingredients}

@@ -11,6 +11,7 @@ const MainPage = (props) => {
         ingredients={props.ingredients}
         text={props.text}
         handleChange={props.handleChange}
+        handleSubmit={props.handleSubmit}
       />
       <RecipeArea
       recipeMatch={props.recipeMatch}
