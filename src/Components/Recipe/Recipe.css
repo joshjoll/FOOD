@@ -1,0 +1,21 @@
+.recipe {
+  display: grid;
+  width: 120px;
+  background-color: grey;
+  border-radius: 40px;
+  color: pink;
+  justify-self: center;
+  margin: 5px 0;
+}
+
+.recipeArea {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px 200px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.AddedIngredient > span {
+  color: black;
+}
