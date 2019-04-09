@@ -1,0 +1,18 @@
+.IngredientRow {
+  display: flex;
+  width: auto;
+
+}
+
+.AddedIngredient {
+  display: inline-block;
+  padding: 5px;
+  background-color: grey;
+  border-radius: 40px;
+  color: pink;
+  margin: 5px;
+}
+
+.AddedIngredient > span {
+  color: black;
+}
