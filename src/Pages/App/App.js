@@ -11,7 +11,7 @@ class App extends Component {
     super();
     this.state = {
       text: '',
-      ingredients: ['salt', 'pepper'],
+      ingredients: ['salt', 'pepper', 'bologna', 'tomato'],
       recipeMatch: ['watermelon', 'water', 'banana', 'deer', 'cauliflower', 'chicken'],
 
     };
@@ -26,8 +26,16 @@ class App extends Component {
     this.setState({
       ingredients: this.state.ingredients.concat([this.state.text])
     });
-    console.log('submit test');
     this.setState({ text: '' });
+  };
+
+  handleRemove = e => {
+    console.log(e)
+    // e.preventDefault();
+    let array = [...this.state.ingredients]
+    let idx = array.indexOf(e);
+    array.splice(idx, 1);
+    this.setState({ ingredients: array });
   };
 
   render() {
@@ -40,6 +48,7 @@ class App extends Component {
           text={this.state.text}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          handleRemove={this.handleRemove}
         />
         <ProfilePage />
       </div>
