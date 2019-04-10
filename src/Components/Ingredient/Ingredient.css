@@ -11,6 +11,7 @@
   border-radius: 40px;
   color: pink;
   margin: 5px;
+  text-transform: capitalize;
 }
 
 .AddedIngredient > span {
