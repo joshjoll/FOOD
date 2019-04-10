@@ -5,7 +5,6 @@ import MainPage from '../Main/mainPage.jsx';
 import ProfilePage from '../User/ProfilePage.jsx';
 import NavBar from '../../Components/NavBar/NavBar';
 
-
 class App extends Component {
   constructor() {
     super();
