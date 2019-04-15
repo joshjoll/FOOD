@@ -71,12 +71,12 @@ class App extends Component {
         <Switch>
           <Route exact path='/' render={() =>
             <MainPage
-              ingredients={this.state.ingredients}
-              recipeMatch={this.state.recipeMatch}
-              text={this.state.text}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
-              handleRemove={this.handleRemove}
+              // ingredients={this.state.ingredients}
+              // recipeMatch={this.state.recipeMatch}
+              // text={this.state.text}
+              // handleChange={this.handleChange}
+              // handleSubmit={this.handleSubmit}
+              // handleRemove={this.handleRemove}
             />
           } />
           <Route exact path='/profile' render={() =>

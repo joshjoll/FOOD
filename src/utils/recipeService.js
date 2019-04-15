@@ -33,11 +33,9 @@ function filterRecipe(ingredients) {
     body: JSON.stringify(ingredients),
   };
   return fetch(BASE_URL + 'filter', options).then(res => {
-    try {
-      res.json();
-    }
-    catch {
-      console.log('mistakes');
-    }
+
+      return res.clone().json();
+
+
   })
 }
