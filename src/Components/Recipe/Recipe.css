@@ -9,9 +9,17 @@
   color: pink;
   text-align: center;
   justify-self: center;
-  margin: 5px 30px;
+  margin: 5px 15px;
+  text-decoration: none;
+  color: pink;
 }
-.recipe > p > a {
+
+
+.recipe > p {
+  text-decoration: none;
+  color: pink;
+}
+.recipe > div {
   text-decoration: none;
   color: pink;
 }
@@ -21,6 +29,15 @@
   width: 150px;
   border-radius: 40px;
   margin-bottom: -10px;
+  text-decoration: none;
+  color: pink;
+}
+
+.noDec {
+  text-decoration: none;
+}
+.noDec :hover {
+  color: blue;
 }
 
 .recipeArea {
@@ -29,6 +46,8 @@
   flex-wrap: wrap;
   padding: 5px;
   margin: 25px;
+  text-decoration: none;
+  color: pink;
 }
 
 .AddedIngredient > span {
