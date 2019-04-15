@@ -77,11 +77,13 @@ class MainPage extends Component {
         {this.state.recipeMatch ?
           <div className="recipeArea">
             {this.state.recipeMatch.map((recipe, index) =>
-              <div className="recipe" key={index}>
-                <img src={recipe.recipeImg} />
-                <p><a href={recipe.recipeLink} target="_blank">{recipe.recipeName}</a></p>
+              <a href={recipe.recipeLink}target="_blank" className="noDec">
+                <div className="recipe" key={index}>
+                  <img src={recipe.recipeImg} />
+                  <p> {recipe.recipeName}</p>
 
-              </div>
+                  </div>
+                </a>
           )}
           </div>
           :
