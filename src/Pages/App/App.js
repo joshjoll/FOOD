@@ -9,6 +9,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import SignupPage from '../SignupPage/SignupPage';
 import RecipePage from '../RecipePage/RecipePage';
 import userService from '../../utils/userService';
+import recipeService from '../../utils/recipeService';
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
     this.state = {
       text: '',
       ingredients: ['salt', 'pepper', 'bologna', 'tomato'],
-      recipeMatch: ['watermelon', 'water', 'banana', 'deer', 'cauliflower', 'chicken'],
+      recipeMatch: ['salt'],
 
     };
   }
@@ -32,9 +33,11 @@ class App extends Component {
   handleSubmit = e => {
     e.preventDefault();
     this.setState({
-      ingredients: this.state.ingredients.concat([this.state.text])
-    });
-    this.setState({ text: '' });
+      ingredients: [...this.state.ingredients, this.state.text],
+      text: ''
+    }, () => recipeService.filterRecipe(this.state.ingredients));
+
+
   };
 
   handleRemove = e => {
@@ -49,11 +52,13 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
+
   };
 
   async componentDidMount() {
     const user = userService.getUser();
     this.setState({ user });
+
   }
 
   render() {
@@ -85,7 +90,6 @@ class App extends Component {
           } />
           <Route exact path='/newRecipe' render={({history}) =>
             <RecipePage
-
               history={history}
             />
           } />

@@ -5,6 +5,7 @@ const recipeCtrl = require('../../controllers/recipe');
 
 /*---------- Public Routes ----------*/
 router.post('/', recipeCtrl.newRecipe);
+router.post('/filter', recipeCtrl.filterRecipe);
 
 
 /*---------- Protected Routes ----------*/
