@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import IngredientArea from '../../Components/IngredientArea/IngredientArea';
 import RecipeArea from '../../Components/RecipeArea/RecipeArea';
 
@@ -16,6 +16,7 @@ const MainPage = (props) => {
       />
       <RecipeArea
       recipeMatch={props.recipeMatch}
+      ingredients={props.ingredients}
       />
     </div>
   );
