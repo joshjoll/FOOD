@@ -13,9 +13,11 @@ class RecipeForm extends Component {
 
   handleChange = (e) => {
     this.props.updateMessage('');
+    const ing = e.target.value.split(', ');
+    console.log(ing);
     this.setState({
       // Using ES2015 Computed Property Names
-      [e.target.name]: e.target.value
+      [e.target.name]: ing
     });
   }
 

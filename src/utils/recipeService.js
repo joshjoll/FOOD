@@ -3,6 +3,7 @@ const BASE_URL = '/api/recipe/';
 export default {
   newRecipe,
   filterRecipe,
+  getAll,
 };
 
 function newRecipe(recipe) {
@@ -38,4 +39,18 @@ function filterRecipe(ingredients) {
 
 
   })
+}
+function getAll() {
+  const options = {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+    },
+  };
+  return fetch(BASE_URL + 'getAll', options).then(res => {
+    console.log(res);
+    return res.clone().json();
+  }
+
+)
 }

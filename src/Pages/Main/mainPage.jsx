@@ -12,10 +12,17 @@ class MainPage extends Component {
     this.state = {
       text: '',
       ingredients: [],
-      recipeMatch: [],
-      isSearched : false
-
+      recipeMatch: [this.returnAll()],
     };
+  }
+
+  async returnAll() {
+    const res  = await recipeService.getAll()
+    // console.log(res[0].recipeName)
+    const result = [...res];
+    this.setState({
+      recipeMatch : result
+    })
   }
 
 
@@ -25,6 +32,7 @@ class MainPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    
     this.setState({
       ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
       text: ''
@@ -78,7 +86,7 @@ class MainPage extends Component {
           <div className="recipeArea">
             {this.state.recipeMatch.map((recipe, index) =>
               <a href={recipe.recipeLink}target="_blank" className="noDec">
-                <div className="recipe" key={index}>
+                <div className="recipe " key={index}>
                   <img src={recipe.recipeImg} />
                   <p> {recipe.recipeName}</p>
 
