@@ -70,7 +70,7 @@ class RecipeForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <Link to='/'><button className="btn btn-default">Submit Recipe</button></Link>&nbsp;&nbsp;
+              <button className="btn btn-default">Submit Recipe</button>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
             <p>{this.state.message}</p>

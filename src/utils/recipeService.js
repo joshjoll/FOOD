@@ -1,3 +1,5 @@
+import tokenService from './tokenService';
+
 const BASE_URL = '/api/recipe/';
 
 export default {
@@ -9,7 +11,10 @@ export default {
 function newRecipe(recipe) {
   const options = {
     method: 'POST',
-    headers: {'Content-Type': 'application/json'},
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + tokenService.getToken()
+    },
     body: JSON.stringify(recipe)
   };
   return fetch(BASE_URL, options)
@@ -48,7 +53,6 @@ function getAll() {
     },
   };
   return fetch(BASE_URL + 'getAll', options).then(res => {
-    console.log(res);
     return res.clone().json();
   }
 
