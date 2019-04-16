@@ -8,12 +8,13 @@ const NavBar = (props) => {
     <nav className="NavBar">
       <Link to='/'>New Search </Link>
       <Link to='/profile'>Profile </Link>
-      <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
+      <Link to='/newRecipe'> New Recipe </Link>
+      <Link to='' className='User' onClick={props.handleLogout} >LOG OUT</Link>
     </nav>
     :
     <nav className="NavBar">
       <Link to='/'>New Search </Link>
-      <Link to='/login'>Log In </Link>
+      <Link to='/login' className='User'>Log In </Link>
     </nav>
   return (
     <div className="NavBar">

@@ -30,5 +30,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://stark-sierra-34176.herokuapp.com/"
+  "proxy": "http://localhost:3001"
 }
