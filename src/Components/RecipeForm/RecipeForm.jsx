@@ -17,7 +17,8 @@ class RecipeForm extends Component {
     console.log(ing);
     this.setState({
       // Using ES2015 Computed Property Names
-      [e.target.name]: ing
+      [e.target.name]: e.target.value,
+      Ingredients: e.target.value.split(', ')
     });
   }
 
@@ -69,7 +70,7 @@ class RecipeForm extends Component {
           </div>
           <div className="form-group">
             <div className="col-sm-12 text-center">
-              <button className="btn btn-default">Submit Recipe</button>&nbsp;&nbsp;
+              <Link to='/'><button className="btn btn-default">Submit Recipe</button></Link>&nbsp;&nbsp;
               <Link to='/'>Cancel</Link>
             </div>
             <p>{this.state.message}</p>

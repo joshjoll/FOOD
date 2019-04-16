@@ -15,22 +15,21 @@
 }
 
 
-.recipe > p {
+/* .recipe > p {
   text-decoration: none;
   color: pink;
-}
-.recipe > div {
+} */
+/* .recipe > div {
   text-decoration: none;
   color: pink;
-}
+} */
 .recipe > img {
   margin: auto;
   width: 190px;
 	object-fit: contain;
   border-radius: 40px;
   /* margin-bottom: -10px; */
-  text-decoration: none;
-  color: pink;
+
 }
 
 .noDec {
@@ -39,6 +38,14 @@
 .noDec :hover {
   color: blue;
   background-color: rgb(229, 231, 227);
+  border-radius: 40px;
+  font-size: 18px;
+}
+.noDec :hover > p {
+  color: blue;
+  background-color: rgb(229, 231, 227);
+  border-radius: 40px;
+  font-size: 18px;
 }
 
 .recipeArea {

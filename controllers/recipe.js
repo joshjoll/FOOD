@@ -20,8 +20,9 @@ async function newRecipe(req, res) {
   recipe.recipeName = req.body.recipeName,
   recipe.recipeLink = req.body.recipeLink,
   recipe.recipeImg = req.body.recipeImg,
-  recipe.Ingredients = req.body.
-  console.log(recipe);
+  recipe.Ingredients = req.body.Ingredients,
+  console.log(req.body );
+  console.log(recipe + 'recipe');
   try {
     await recipe.save();
     res.json();

@@ -5,7 +5,8 @@ import React from 'react';
 const ProfilePage = (props) => {
   return (
     <div className="mainPage">
-      Test
+    <h2>Welcome, </h2>
+    test
     </div>
   );
 
