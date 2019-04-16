@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch} from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
 import MainPage from '../Main/mainPage.jsx';
@@ -91,9 +91,12 @@ class App extends Component {
             />
           } />
           <Route exact path='/newRecipe' render={({history}) =>
+            userService.getUser() ?
             <RecipePage
               history={history}
             />
+            :
+            <Redirect to='/login' />
           } />
           <Route exact path='/signup' render={({history}) =>
             <SignupPage

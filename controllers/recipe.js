@@ -10,18 +10,17 @@ module.exports = {
 async function getAll(req, res) {
   const all = await Recipe.find({})
   .limit(18);
-  console.log(all);
   res.json(all);
 }
 
 async function newRecipe(req, res) {
-  console.log('reached controller');
   const recipe = new Recipe(req.body);
   recipe.recipeName = req.body.recipeName,
   recipe.recipeLink = req.body.recipeLink,
   recipe.recipeImg = req.body.recipeImg,
   recipe.Ingredients = req.body.Ingredients,
   console.log(req.body );
+  console.log(req.user);
   console.log(recipe + 'recipe');
   try {
     await recipe.save();
