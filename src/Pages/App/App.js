@@ -80,7 +80,9 @@ class App extends Component {
             />
           } />
           <Route exact path='/profile' render={() =>
-            <ProfilePage />
+            <ProfilePage
+              user={this.state.user}
+            />
           } />
           <Route exact path='/login' render={({history}) =>
             <LoginPage

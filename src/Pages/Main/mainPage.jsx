@@ -32,7 +32,7 @@ class MainPage extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    
+
     this.setState({
       ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
       text: ''
@@ -87,8 +87,8 @@ class MainPage extends Component {
             {this.state.recipeMatch.map((recipe, index) =>
               <a href={recipe.recipeLink}target="_blank" className="noDec">
                 <div className="recipe " key={index}>
-                  <img src={recipe.recipeImg} />
-                  <p> {recipe.recipeName}</p>
+                  <img src={recipe.recipeImg} className="noDec"/>
+                  <p className="noDec"> {recipe.recipeName}</p>
 
                   </div>
                 </a>
