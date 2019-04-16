@@ -20,6 +20,7 @@ This game some of the following languages, and should be supported in most brows
 1. Mongoose
 
 <img src="public/newRecipe.PNG">
+
 ## Development issues
 
 During the development of Pickups, the dev team decided to roll out certain features in future updates to make sure the current user experience is bug free.
