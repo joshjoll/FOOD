@@ -6,6 +6,26 @@ const recipeSchema = new mongoose.Schema({
   recipeLink: {type: String, required: true, lowercase: true},
   recipeImg: {type: String, required: true, lowercase: true},
   Ingredients: [],
+  vegetarian: {
+    type: Boolean,
+    default: false,
+  },
+  vegan: {
+    type: Boolean,
+    default: false,
+  },
+  glutenFree: {
+    type: Boolean,
+    default: false,
+  },
+  dairyFree: {
+    type: Boolean,
+    default: false,
+  },
+  ketogenic: {
+    type: Boolean,
+    default: false,
+  },
 }, {
   timestamps: true
 });
