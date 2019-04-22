@@ -29,7 +29,7 @@ class RecipeForm extends Component {
 
   handleCheck = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.checked,
     });
   };
 
@@ -44,13 +44,14 @@ class RecipeForm extends Component {
       await recipeService.newRecipe(this.state);
       this.handleRecipe();
       //replace with function for submitting recipe -- must split ingredient items
+      console.log('submitted');
 
       // no change
       this.props.history.push('/');
     } catch (err) {
       // Invalid user data (probably duplicate email)
       this.props.updateMessage(err.message);
-      console.log('submitted');
+      console.log('error');
     }
   }
 
@@ -83,31 +84,31 @@ class RecipeForm extends Component {
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="vegetarian">Vegetarian</label>
-              <input type="checkbox" className="form-control" placeholder="List of Ingredients Separated with a Comma" name="vegetarian" onChange={this.handleCheck} />
+              <input type="checkbox" className="form-control"  name="vegetarian"  onChange={this.handleCheck} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="vegan">Vegan</label>
-              <input type="checkbox" className="form-control" placeholder="List of Ingredients Separated with a Comma" name="vegan" onChange={this.handleCheck} />
+              <input type="checkbox" className="form-control"  name="vegan" onChange={this.handleCheck} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="glutenFree">Gluten Free</label>
-              <input type="checkbox" className="form-control" placeholder="List of Ingredients Separated with a Comma" name="glutenFree" onChange={this.handleCheck} />
+              <input type="checkbox" className="form-control"  name="glutenFree" onChange={this.handleCheck} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="dairyFree">Dairy Free</label>
-              <input type="checkbox" className="form-control" placeholder="List of Ingredients Separated with a Comma" name="dairyFree" onChange={this.handleCheck} />
+              <input type="checkbox" className="form-control" name="dairyFree" onChange={this.handleCheck} />
             </div>
           </div>
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="ketogenic">Ketogenic</label>
-              <input type="checkbox" className="form-control" placeholder="List of Ingredients Separated with a Comma" name="ketogenic" onChange={this.handleCheck} />
+              <input type="checkbox" className="form-control"  name="ketogenic" onChange={this.handleCheck} />
             </div>
           </div>
           //end of buttons

@@ -37,8 +37,8 @@ class MainPage extends Component {
       ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
       text: ''
     }, async () => {
-      const res  = await recipeService.filterRecipe(this.state.ingredients)
-      // console.log(res[0].recipeName)
+      console.log(this.props.user)
+      const res  = await recipeService.filterRecipe(this.state.ingredients, this.props.user)
       const result = [...res]
        this.setState({
         recipeMatch : result
@@ -59,7 +59,7 @@ class MainPage extends Component {
     let idx = array.indexOf(e);
     array.splice(idx, 1);
     this.setState({ ingredients: array }, async () => {
-      const res  = await recipeService.filterRecipe(this.state.ingredients)
+      const res  = await recipeService.filterRecipe(this.state.ingredients, this.props.user)
       // console.log(res[0].recipeName)
       const result = [...res]
        this.setState({

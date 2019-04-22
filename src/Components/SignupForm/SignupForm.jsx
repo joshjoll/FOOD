@@ -8,7 +8,12 @@ class SignupForm extends Component {
     name: '',
     email: '',
     password: '',
-    passwordConf: ''
+    passwordConf: '',
+    vegetarian: '',
+    vegan: '',
+    glutenFree: '',
+    dairyFree: '',
+    ketogenic: '',
   };
 
   handleChange = (e) => {
@@ -18,6 +23,12 @@ class SignupForm extends Component {
       [e.target.name]: e.target.value
     });
   }
+
+  handleCheck = (e) => {
+    this.setState({
+      [e.target.name]: e.target.checked,
+    });
+  };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,6 +74,38 @@ class SignupForm extends Component {
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
+          //start buttons
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="vegetarian">Vegetarian</label>
+              <input type="checkbox" className="form-control"  name="vegetarian"  onChange={this.handleCheck} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="vegan">Vegan</label>
+              <input type="checkbox" className="form-control"  name="vegan" onChange={this.handleCheck} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="glutenFree">Gluten Free</label>
+              <input type="checkbox" className="form-control"  name="glutenFree" onChange={this.handleCheck} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="dairyFree">Dairy Free</label>
+              <input type="checkbox" className="form-control" name="dairyFree" onChange={this.handleCheck} />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="col-sm-12">
+              <label htmlFor="ketogenic">Ketogenic</label>
+              <input type="checkbox" className="form-control"  name="ketogenic" onChange={this.handleCheck} />
+            </div>
+          </div>
+          //end buttons
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;

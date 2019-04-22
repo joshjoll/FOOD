@@ -1,12 +1,19 @@
 import React from 'react';
+import UserPreferences from '../../Components/UserPreferences/UserPreferences';
+import UserRecipes from '../../Components/UserRecipes/UserRecipes';
 // import { Link } from 'react-router-dom';
 
 
 const ProfilePage = (props) => {
   return (
-    <div className="mainPage">
-    <h2>Welcome, </h2>
-    test
+    <div >
+    <h2>Welcome, {props.user.name}</h2>
+    <UserPreferences
+      user={props.user}
+    />
+    <UserRecipes
+      user={props.user}
+    />
     </div>
   );
 
