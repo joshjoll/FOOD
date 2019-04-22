@@ -96,7 +96,7 @@ class MainPage extends Component {
           </div>
           :
           <div>
-          <p> nothing was found </p>
+            <p> nothing was found </p>
           </div>
       }
       </div>
