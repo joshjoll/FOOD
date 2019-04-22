@@ -10,6 +10,11 @@ module.exports = {
 
 async function signup(req, res) {
   const user = new User(req.body);
+  user.vegetarian = req.body.vegetarian ? true : false;
+  user.vegan = req.body.vegan ? true : false;
+  user.dairyFree = req.body.dairyFree ? true : false;
+  user.glutenFree = req.body.glutenFree ? true : false;
+  user.ketogenic = req.body.ketogenic ? true : false;
   try {
     await user.save();
     const token = createJWT(user);
@@ -23,6 +28,7 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({email: req.body.email});
+    console.log(user);
     if (!user) return res.status(401).json({err: 'bad credentials'});
     user.comparePassword(req.body.pw, (err, isMatch) => {
       if (isMatch) {

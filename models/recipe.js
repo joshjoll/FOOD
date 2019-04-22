@@ -8,23 +8,23 @@ const recipeSchema = new mongoose.Schema({
   Ingredients: [],
   vegetarian: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   vegan: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   glutenFree: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   dairyFree: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
   ketogenic: {
     type: Boolean,
-    default: false,
+    // default: false,
   },
 }, {
   timestamps: true

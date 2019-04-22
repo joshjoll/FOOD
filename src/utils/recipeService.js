@@ -30,14 +30,16 @@ function newRecipe(recipe) {
   //.then((token) => token.token);
 }
 
-function filterRecipe(ingredients) {
+function filterRecipe(ingredients, user) {
   const options = {
     method: 'POST',
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify(ingredients),
+    body: JSON.stringify({ingredients, user}),
+    user: JSON.stringify(),
   };
+  console.log(user);
   return fetch(BASE_URL + 'filter', options).then(res => {
 
       return res.clone().json();

@@ -18,7 +18,7 @@ class App extends Component {
       text: '',
       ingredients: ['salt', 'pepper', 'bologna', 'tomato'],
       recipeMatch: ['salt'],
-
+      user: ''
     };
   }
 
@@ -68,9 +68,11 @@ class App extends Component {
           user={this.state.user}
           handleLogout={this.handleLogout}
         />
+
         <Switch>
           <Route exact path='/' render={() =>
             <MainPage
+              user = {this.state.user}
               // ingredients={this.state.ingredients}
               // recipeMatch={this.state.recipeMatch}
               // text={this.state.text}
@@ -79,9 +81,10 @@ class App extends Component {
               // handleRemove={this.handleRemove}
             />
           } />
-          <Route exact path='/profile' render={() =>
+          <Route exact path='/profile' render={({history}) =>
             <ProfilePage
               user={this.state.user}
+              history={history}
             />
           } />
           <Route exact path='/login' render={({history}) =>

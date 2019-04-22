@@ -7,6 +7,26 @@ const userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
+  vegetarian: {
+    type: Boolean,
+    // default: false,
+  },
+  vegan: {
+    type: Boolean,
+    // default: false,
+  },
+  glutenFree: {
+    type: Boolean,
+    // default: false,
+  },
+  dairyFree: {
+    type: Boolean,
+    // default: false,
+  },
+  ketogenic: {
+    type: Boolean,
+    // default: false,
+  },
 }, {
   timestamps: true
 });
