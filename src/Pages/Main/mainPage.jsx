@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import IngredientArea from '../../Components/IngredientArea/IngredientArea';
 import RecipeArea from '../../Components/RecipeArea/RecipeArea';
 import recipeService from '../../utils/recipeService';
+import userService from '../../utils/userService';
+
 
 
 class MainPage extends Component {
@@ -16,9 +18,20 @@ class MainPage extends Component {
     };
   }
 
+  handleFavorite = idx => {
+    const favorited = this.state.recipeMatch[idx]._id;
+    console.log(favorited)
+    console.log('handleFavorite ' + idx);
+    const res = userService.addFavorite(favorited, this.props.user)
+
+    this.setState({
+      user: res
+    })
+  }
+
   async returnAll() {
     const res  = await recipeService.getAll()
-    // console.log(res[0].recipeName)
+    // console.log(res)
     const result = [...res];
     this.setState({
       recipeMatch : result
@@ -37,17 +50,12 @@ class MainPage extends Component {
       ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
       text: ''
     }, async () => {
-      console.log(this.props.user)
       const res  = await recipeService.filterRecipe(this.state.ingredients, this.props.user)
+      // console.log(res)
       const result = [...res]
        this.setState({
         recipeMatch : result
-      })
-
-      ;
-      /*this.setState({receipeMatch: this.state.recipeMatch.concat(res) });
-      console.log(this.state.recipeMatch);
-      return res;*/
+      });
     },
   )
   };
@@ -81,24 +89,10 @@ class MainPage extends Component {
           handleSubmit={this.handleSubmit}
           handleRemove={this.handleRemove}
         />
-
-        {this.state.recipeMatch ?
-          <div className="recipeArea">
-            {this.state.recipeMatch.map((recipe, index) =>
-              <a href={recipe.recipeLink}target="_blank" className="noDec">
-                <div className="recipe " key={index}>
-                  <img src={recipe.recipeImg} className="noDec"/>
-                  <p className="noDec"> {recipe.recipeName}</p>
-
-                  </div>
-                </a>
-          )}
-          </div>
-          :
-          <div>
-            <p> nothing was found </p>
-          </div>
-      }
+        <RecipeArea
+          recipeMatch={this.state.recipeMatch}
+          handleFavorite={this.handleFavorite}
+         />
       </div>
     );
   }

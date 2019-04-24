@@ -41,9 +41,28 @@ function login(creds) {
   .then(({token}) => tokenService.setToken(token));
 }
 
+function addFavorite(newFavorite, user) {
+  return fetch(BASE_URL + 'addFavorite', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer ' + tokenService.getToken(),
+    },
+    body: JSON.stringify({ newFavorite, user })
+  })
+  .then(res => {
+    console.log(res);
+    return res.json();
+    throw new Error('Sorry, it didnt add!');
+  })
+}
+
+
+
 export default {
   signup,
   getUser,
   logout,
-  login
+  login,
+  addFavorite,
 };

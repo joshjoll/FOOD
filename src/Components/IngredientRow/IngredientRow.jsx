@@ -3,10 +3,10 @@ import Ingredient from '../Ingredient/Ingredient';
 
 const IngredientRow = (props) => (
   <div className="IngredientRow" >
-  {props.ingredients.map((ingredient) =>
+  {props.ingredients.map((ingredient, idx) =>
     <Ingredient
       ingredients={ingredient}
-      key={ingredient.id}
+      key={idx}
       handleRemove={props.handleRemove}
     />
   )}
