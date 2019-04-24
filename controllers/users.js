@@ -4,9 +4,29 @@ const SECRET = process.env.SECRET;
 
 module.exports = {
   signup,
-  login
+  login,
+  addFavorite,
 };
 
+async function addFavorite(req, res) {
+  const newFavorite = req.body.newFavorite;
+  const user = req.body.user;
+  console.log(newFavorite);
+  const p = await User.findById(user._id)
+  console.log(p.favorites.length);
+  p.favorites.push(req.body.newFavorite);
+  console.log(p.favorites.length);
+
+
+  try{
+    const newUser = await User.findByIdAndUpdate(user._id, { favorites: p.favorites });
+    console.log(p.favorites.length)
+    console.log(newUser.favorites.length);
+    res.json(newUser);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 async function signup(req, res) {
   const user = new User(req.body);

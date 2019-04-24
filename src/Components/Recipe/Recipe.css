@@ -1,9 +1,9 @@
 .recipe {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 120px 65px;
+  grid-template-rows: 120px 65px 30px;
   width: 200px;
-  height: 190px;
+  height: 205px;
   background-color: grey;
   border-radius: 40px;
   color: pink;
@@ -14,16 +14,7 @@
   color: pink;
 }
 
-
-/* .recipe > p {
-  text-decoration: none;
-  color: pink;
-} */
-/* .recipe > div {
-  text-decoration: none;
-  color: pink;
-} */
-.recipe > img {
+.recipe > a > img {
   margin: auto;
   width: 190px;
 	object-fit: contain;
@@ -39,13 +30,19 @@
   color: blue;
   background-color: rgb(229, 231, 227);
   border-radius: 40px;
-  font-size: 18px;
+  /* font-size: 18px; */
 }
-.noDec :hover > p {
+.noDec :hover > p:first-child {
   color: blue;
   background-color: rgb(229, 231, 227);
   border-radius: 40px;
-  font-size: 18px;
+  /* font-size: 18px; */
+}
+.noDec :hover :nth-child(3) {
+  color: lightblue;
+  background-color: grey;
+  border-radius: 40px;
+  /* font-size: 18px; */
 }
 
 .recipeArea {
@@ -61,4 +58,15 @@
 
 .AddedIngredient > span {
   color: black;
+}
+
+
+.favoriteBtn {
+  margin: auto;
+  margin-top: 0;
+  border-radius: 40px;
+  color: lightblue;
+  width: 180px;
+  background-color: grey;
+  border:none;
 }

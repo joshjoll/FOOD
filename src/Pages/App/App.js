@@ -18,9 +18,11 @@ class App extends Component {
       text: '',
       ingredients: ['salt', 'pepper', 'bologna', 'tomato'],
       recipeMatch: ['salt'],
-      user: ''
+      user: null,
     };
   }
+
+
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
@@ -36,8 +38,6 @@ class App extends Component {
       ingredients: [...this.state.ingredients, this.state.text],
       text: ''
     }, () => recipeService.filterRecipe(this.state.ingredients));
-
-
   };
 
   handleRemove = e => {
@@ -52,7 +52,6 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
-
   };
 
   async componentDidMount() {
@@ -73,6 +72,7 @@ class App extends Component {
           <Route exact path='/' render={() =>
             <MainPage
               user = {this.state.user}
+              handleFavorite={this.handleFavorite}
               // ingredients={this.state.ingredients}
               // recipeMatch={this.state.recipeMatch}
               // text={this.state.text}

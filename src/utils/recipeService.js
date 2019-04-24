@@ -20,14 +20,8 @@ function newRecipe(recipe) {
   return fetch(BASE_URL, options)
   .then(res => {
     console.log('recipeServices');
-
-    // Probably a duplicate email
     throw new Error('we messed up!');
   })
-  // Parameter destructuring!
-  // .then(({token}) => tokenService.setToken(token));
-  // The above could have been written as
-  //.then((token) => token.token);
 }
 
 function filterRecipe(ingredients, user) {
@@ -37,14 +31,9 @@ function filterRecipe(ingredients, user) {
       'Content-type': 'application/json',
     },
     body: JSON.stringify({ingredients, user}),
-    user: JSON.stringify(),
   };
-  console.log(user);
   return fetch(BASE_URL + 'filter', options).then(res => {
-
       return res.clone().json();
-
-
   })
 }
 function getAll() {
@@ -56,7 +45,5 @@ function getAll() {
   };
   return fetch(BASE_URL + 'getAll', options).then(res => {
     return res.clone().json();
-  }
-
-)
+  });
 }
