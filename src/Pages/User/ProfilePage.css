@@ -1,0 +1,45 @@
+.profile {
+  display: grid;
+  width: 1fr;
+  grid-template-columns: 200px 200px 1fr;
+  grid-template-rows: 200px 1fr;
+  grid-template:
+    "welcome preferences userRecipes"
+    "favorited favorited userRecipes"
+
+}
+
+.welcome {
+  grid-area: welcome;
+  
+}
+
+.userPreferences {
+  grid-area: preferences;
+  border: 1px solid black;
+  width: 200px;
+  background-color: grey;
+  text-align: center;
+
+}
+
+.userPreferences > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.userPreferences > li {
+  float: left;
+  padding: 2px 5px;
+}
+
+.UserNewRecipes {
+  grid-area: userRecipes;
+}
+
+.userFavorites {
+  grid-area: favorited;
+  display: flex;
+}

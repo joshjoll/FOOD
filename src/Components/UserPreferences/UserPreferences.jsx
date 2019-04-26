@@ -1,10 +1,11 @@
 import React from 'react';
+import '../../Pages/User/ProfilePage.css';
 // import { Link } from 'react-router-dom';
 
 
 const UserPreferences = (props) => {
   return (
-    <div >
+    <div className="userPreferences">
     <ul>
     <li>Ketogenic? {props.user.ketogenic ? "Yes Please" : 'Nope'}</li>
     <li>Dairy Free? {props.user.dairyFree ? "Yes Please" : 'Nope'}</li>

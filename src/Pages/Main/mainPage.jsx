@@ -19,14 +19,10 @@ class MainPage extends Component {
   }
 
   handleFavorite = idx => {
-    const favorited = this.state.recipeMatch[idx]._id;
-    console.log(favorited)
-    console.log('handleFavorite ' + idx);
+    const favorited = this.state.recipeMatch[idx];
+    console.log(favorited);
     const res = userService.addFavorite(favorited, this.props.user)
-
-    this.setState({
-      user: res
-    })
+    this.props.getUser();
   }
 
   async returnAll() {
@@ -92,6 +88,7 @@ class MainPage extends Component {
         <RecipeArea
           recipeMatch={this.state.recipeMatch}
           handleFavorite={this.handleFavorite}
+          getUser={this.props.getUser}
          />
       </div>
     );

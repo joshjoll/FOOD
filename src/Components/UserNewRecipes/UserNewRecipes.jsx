@@ -4,12 +4,12 @@ import Recipe from '../Recipe/Recipe';
 // import { Link } from 'react-router-dom';
 
 
-const UserRecipes = (props) => {
+const UserNewRecipes = (props) => {
   return (
     <div >
     <h3> {props.user.name}'s favorite recipes </h3>
       {props.user.favorites ?
-      <div className="userFavorites">
+      <div className="UserNewRecipes">
       {props.user.favorites.map((recipe) =>
         <Recipe
           recipe={recipe}
@@ -24,4 +24,4 @@ const UserRecipes = (props) => {
 
 };
 
-export default UserRecipes;
+export default UserNewRecipes;

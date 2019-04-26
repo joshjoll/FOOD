@@ -7,8 +7,10 @@ const Recipe = (props) => (
           <img src={props.recipe.recipeImg} />
           <p className="noDec"> {props.recipe.recipeName}</p>
         </a>
-        <button onClick={ () => props.handleFavorite(props.index)} className="favoriteBtn">
-        ADD TO FAVORITES
+        <button
+          onClick={ () => { props.handleFavorite(props.index); props.getUser(); }}
+          className="favoriteBtn">
+          ADD TO FAVORITES
         </button>
       </div>
 );
