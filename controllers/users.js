@@ -13,15 +13,12 @@ async function addFavorite(req, res) {
   const user = req.body.user;
   console.log(newFavorite);
   const p = await User.findById(user._id)
-  console.log(p.favorites.length);
   p.favorites.push(req.body.newFavorite);
-  console.log(p.favorites.length);
+  console.log(p.favorites);
 
 
   try{
     const newUser = await User.findByIdAndUpdate(user._id, { favorites: p.favorites });
-    console.log(p.favorites.length)
-    console.log(newUser.favorites.length);
     res.json(newUser);
   } catch (err) {
     res.status(400).json(err);

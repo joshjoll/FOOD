@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 // import styles from './HighScoresPage.module.css';
-import searchService from '../../utils/searchServices';
 import Recipe from '../Recipe/Recipe';
 
 const RecipeArea = (props) => (
@@ -13,6 +12,7 @@ const RecipeArea = (props) => (
             handleFavorite={props.handleFavorite}
             recipe={recipe}
             index={idx}
+            getUser={props.getUser}
           />
           )}
       </div>

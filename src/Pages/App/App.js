@@ -15,14 +15,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      text: '',
-      ingredients: ['salt', 'pepper', 'bologna', 'tomato'],
-      recipeMatch: ['salt'],
       user: null,
     };
   }
 
-
+  refreshuser = () =>  {
+    userService.getUser();
+  }
 
   handleSignupOrLogin = () => {
     this.setState({ user: userService.getUser() });
@@ -54,9 +53,17 @@ class App extends Component {
     this.setState({ user: null });
   };
 
+  getUser () {
+/*    const user = userService.getUser();
+    console.log('getUser');
+    this.setState({ user: user });
+    console.log('state updated');*/
+  }
+
   async componentDidMount() {
     const user = userService.getUser();
     this.setState({ user });
+    // this.getUser();
 
   }
 
@@ -73,6 +80,7 @@ class App extends Component {
             <MainPage
               user = {this.state.user}
               handleFavorite={this.handleFavorite}
+              getUser={this.getUser}
               // ingredients={this.state.ingredients}
               // recipeMatch={this.state.recipeMatch}
               // text={this.state.text}
