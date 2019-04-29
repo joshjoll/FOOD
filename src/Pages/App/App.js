@@ -15,12 +15,75 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      text: '',
+      ingredients: [],
+      recipeMatch: [this.returnAll()],
       user: null,
     };
   }
 
-  refreshuser = () =>  {
-    userService.getUser();
+  //Refactored code starts here
+
+  async returnAll() {
+    const res  = await recipeService.getAll()
+    // console.log(res)
+    const result = [...res];
+    this.setState({
+      recipeMatch : result
+    })
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state.user);
+
+    this.setState({
+      ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
+      text: '',
+    }, async () => {
+      const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
+      // console.log(res)
+      const result = [...res]
+       this.setState({
+        recipeMatch : result
+      });
+    },
+  )};
+
+  handleRemove = e => {
+    // e.preventDefault();
+    console.log(this.state.user);
+
+    let array = [...this.state.ingredients]
+    let idx = array.indexOf(e);
+    array.splice(idx, 1);
+    this.setState({ ingredients: array }, async () => {
+      const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user)
+      // console.log(res[0].recipeName)
+      const result = [...res]
+       this.setState({
+        recipeMatch : result
+      });
+    })
+  }
+
+  handleFavorite = idx => {
+    const favorited = this.state.recipeMatch[idx];
+    // console.log(favorited);
+    userService.addFavorite(favorited, this.state.user);
+    this.refreshUser();
+    console.log('end of handleFavorite')
+  };
+
+  //Refactored code ends here
+
+  async refreshUser() {
+    this.setState({ user: await userService.refreshUser(this.state.user) });
+    console.log(this.state.user);
   }
 
   handleSignupOrLogin = () => {
@@ -31,40 +94,34 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({
-      ingredients: [...this.state.ingredients, this.state.text],
-      text: ''
-    }, () => recipeService.filterRecipe(this.state.ingredients));
-  };
-
-  handleRemove = e => {
-    console.log(e)
-    // e.preventDefault();
-    let array = [...this.state.ingredients]
-    let idx = array.indexOf(e);
-    array.splice(idx, 1);
-    this.setState({ ingredients: array });
-  };
-
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
   };
 
-  getUser () {
-/*    const user = userService.getUser();
-    console.log('getUser');
-    this.setState({ user: user });
-    console.log('state updated');*/
-  }
+
+/*To Delete*/
+  /*  handleSubmit = e => {
+      e.preventDefault();
+      this.setState({
+        ingredients: [...this.state.ingredients, this.state.text],
+        text: ''
+      }, () => recipeService.filterRecipe(this.state.ingredients));
+    };
+
+    handleRemove = e => {
+      console.log(e)
+      // e.preventDefault();
+      let array = [...this.state.ingredients]
+      let idx = array.indexOf(e);
+      array.splice(idx, 1);
+      this.setState({ ingredients: array });
+    };*/
+
 
   async componentDidMount() {
     const user = userService.getUser();
     this.setState({ user });
-    // this.getUser();
-
   }
 
   render() {
@@ -79,14 +136,15 @@ class App extends Component {
           <Route exact path='/' render={() =>
             <MainPage
               user = {this.state.user}
-              handleFavorite={this.handleFavorite}
               getUser={this.getUser}
-              // ingredients={this.state.ingredients}
-              // recipeMatch={this.state.recipeMatch}
-              // text={this.state.text}
-              // handleChange={this.handleChange}
-              // handleSubmit={this.handleSubmit}
-              // handleRemove={this.handleRemove}
+              ingredients={this.state.ingredients}
+              recipeMatch={this.state.recipeMatch}
+              text={this.state.text}
+              returnAll={this.returnAll}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              handleRemove={this.handleRemove}
+              handleFavorite={this.handleFavorite}
             />
           } />
           <Route exact path='/profile' render={({history}) =>

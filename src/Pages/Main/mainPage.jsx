@@ -12,38 +12,39 @@ class MainPage extends Component {
   constructor() {
     super();
     this.state = {
-      text: '',
+/*      text: '',
       ingredients: [],
-      recipeMatch: [this.returnAll()],
+      recipeMatch: [this.returnAll()],*/
     };
   }
 
-  handleFavorite = idx => {
+  /*handleFavorite = idx => {
     const favorited = this.state.recipeMatch[idx];
     console.log(favorited);
     const res = userService.addFavorite(favorited, this.props.user)
     this.props.getUser();
-  }
+  }*/
 
-  async returnAll() {
+/*  async returnAll() {
     const res  = await recipeService.getAll()
     // console.log(res)
     const result = [...res];
     this.setState({
       recipeMatch : result
     })
-  }
+  }*/
 
 
-  handleChange = e => {
+/*  handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-  };
+  };*/
 
-  handleSubmit = e => {
+/*  handleSubmit = e => {
     e.preventDefault();
 
     this.setState({
-      ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
+      ingredients: this.state.ingredients.concat([this.state.text]),
+      // [...this.state.ingredients, this.state.text],
       text: ''
     }, async () => {
       const res  = await recipeService.filterRecipe(this.state.ingredients, this.props.user)
@@ -53,11 +54,10 @@ class MainPage extends Component {
         recipeMatch : result
       });
     },
-  )
-  };
+  )};*/
 
 
-  handleRemove = e => {
+/*  handleRemove = e => {
     // e.preventDefault();
     let array = [...this.state.ingredients]
     let idx = array.indexOf(e);
@@ -70,7 +70,7 @@ class MainPage extends Component {
         recipeMatch : result
       });
     })
-  }
+  }*/
 
 
   render() {
@@ -79,15 +79,15 @@ class MainPage extends Component {
     return (
       <div className="mainPage">
         <IngredientArea
-          ingredients={this.state.ingredients}
-          text={this.state.text}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          handleRemove={this.handleRemove}
+          ingredients={this.props.ingredients}
+          text={this.props.text}
+          handleChange={this.props.handleChange}
+          handleSubmit={this.props.handleSubmit}
+          handleRemove={this.props.handleRemove}
         />
         <RecipeArea
-          recipeMatch={this.state.recipeMatch}
-          handleFavorite={this.handleFavorite}
+          recipeMatch={this.props.recipeMatch}
+          handleFavorite={this.props.handleFavorite}
           getUser={this.props.getUser}
          />
       </div>

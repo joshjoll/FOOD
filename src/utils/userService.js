@@ -49,15 +49,23 @@ function addFavorite(newFavorite, user) {
       // 'Authorization': 'Bearer ' + tokenService.getToken(),
     },
     body: JSON.stringify({ newFavorite, user })
-  })
-  .then(res => {
-    console.log(res);
-    return res.json();
-    throw new Error('Sorry, it didnt add!');
-  })
+  }).then(res => {
+      return res.json('success');
+    });
 }
 
-
+function refreshUser(user) {
+  return fetch(BASE_URL + 'refreshUser', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      // 'Authorization': 'Bearer ' + tokenService.getToken(),
+    },
+    body: JSON.stringify(user)
+  }).then(res => {
+      return res.json(user);
+    });
+}
 
 export default {
   signup,
@@ -65,4 +73,5 @@ export default {
   logout,
   login,
   addFavorite,
+  refreshUser,
 };
