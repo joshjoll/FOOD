@@ -121,7 +121,8 @@ class App extends Component {
 
   async componentDidMount() {
     const user = userService.getUser();
-    this.setState({ user });
+    this.setState({ user: await userService.refreshUser(user) });
+    /*this.setState({ user });*/
   }
 
   render() {

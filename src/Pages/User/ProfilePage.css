@@ -1,23 +1,23 @@
 .profile {
   display: grid;
-  width: 1fr;
-  grid-template-columns: 200px 200px 1fr;
+  width: 100%;
+  grid-template-columns: 240px 240px 1fr;
   grid-template-rows: 200px 1fr;
-  grid-template:
-    "welcome preferences userRecipes"
-    "favorited favorited userRecipes"
+  grid-template-areas:
+    "welcome preferences ."
+    "userFavorites userFavorites userFavorites"
 
 }
 
 .welcome {
   grid-area: welcome;
-  
+  /*width*/: 200px;
 }
 
 .userPreferences {
   grid-area: preferences;
   border: 1px solid black;
-  width: 200px;
+  /*width*/: 200px;
   background-color: grey;
   text-align: center;
 
@@ -40,6 +40,10 @@
 }
 
 .userFavorites {
-  grid-area: favorited;
+  grid-area: userFavorites;
   display: flex;
+  flex-wrap: wrap;
+   width: 480px;
+}
+.userFavorites > div {
 }
