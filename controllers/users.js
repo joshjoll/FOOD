@@ -6,7 +6,20 @@ module.exports = {
   signup,
   login,
   addFavorite,
+  refreshUser,
 };
+
+async function refreshUser(req, res) {
+  const user = req.body;
+  console.log(user._id);
+  try {
+    const update = await User.findById(user._id);
+    console.log(update);
+    res.json(update);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+}
 
 async function addFavorite(req, res) {
   const newFavorite = req.body.newFavorite;
@@ -14,12 +27,13 @@ async function addFavorite(req, res) {
   console.log(newFavorite);
   const p = await User.findById(user._id)
   p.favorites.push(req.body.newFavorite);
-  console.log(p.favorites);
+  // console.log(p.favorites);
 
-
-  try{
-    const newUser = await User.findByIdAndUpdate(user._id, { favorites: p.favorites });
-    res.json(newUser);
+  try {
+    await User.findByIdAndUpdate(user._id, { favorites: p.favorites })
+    const newUser = await User.findById(user._id);
+    // console.log(res.json(newUser))
+    res.json('success');
   } catch (err) {
     res.status(400).json(err);
   }

@@ -30,7 +30,7 @@ function filterRecipe(ingredients, user) {
     headers: {
       'Content-type': 'application/json',
     },
-    body: JSON.stringify({ingredients, user}),
+    body: JSON.stringify({ ingredients, user }),
   };
   return fetch(BASE_URL + 'filter', options).then(res => {
       return res.clone().json();

@@ -8,7 +8,7 @@ const Recipe = (props) => (
           <p className="noDec"> {props.recipe.recipeName}</p>
         </a>
         <button
-          onClick={ () => { props.handleFavorite(props.index); props.getUser(); }}
+          onClick={ () => { props.handleFavorite(props.index) }}
           className="favoriteBtn">
           ADD TO FAVORITES
         </button>

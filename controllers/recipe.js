@@ -36,7 +36,7 @@ async function newRecipe(req, res) {
 }
 
 async function filterRecipe(req, res) {
-  console.log('reached controller filter');
+  console.log('reached controller filterRecipe');
   const ingredient = req.body.ingredients;
   const user = req.body.user;
   console.log(ingredient);
