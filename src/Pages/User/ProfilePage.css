@@ -5,19 +5,16 @@
   grid-template-rows: 200px 1fr;
   grid-template-areas:
     "welcome preferences ."
-    "userFavorites userFavorites userFavorites"
-
+    "userFavorites userFavorites userFavorites";
 }
 
 .welcome {
   grid-area: welcome;
-  /*width*/: 200px;
 }
 
 .userPreferences {
   grid-area: preferences;
   border: 1px solid black;
-  /*width*/: 200px;
   background-color: grey;
   text-align: center;
 
@@ -40,10 +37,17 @@
 }
 
 .userFavorites {
+  display: grid;
   grid-area: userFavorites;
-  display: flex;
-  flex-wrap: wrap;
-   width: 480px;
+  /*display: flex;
+  flex-wrap: wrap;*/
+  /* width: 480px; */
 }
 .userFavorites > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+.userFavorites > div > div {
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -6,9 +6,9 @@ import Recipe from '../Recipe/Recipe';
 
 const UserRecipes = (props) => {
   return (
-    <div>
-    <h3> {props.user.name}'s favorite recipes </h3>
     <div className="userFavorites">
+    <h3> {props.user.name}'s favorite recipes </h3>
+    <div >
       {props.user.favorites ?
       <div >
       {props.user.favorites.map((recipe) =>
