@@ -63,7 +63,9 @@ function refreshUser(user) {
     },
     body: JSON.stringify(user)
   }).then(res => {
+      if (user) {
       return res.json(user);
+    }
     });
 }
 
