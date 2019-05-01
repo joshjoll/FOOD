@@ -1,43 +1,42 @@
 <img src="public/Search.PNG">
 
-# FOOD
+# Food
 
-Food. We all need it, we all eat it, but the average person throws away 300 lbs of food a year, valued at almost $2200. Food is designed to help make cooking more efficient by finding recipes for the food that you already have in your house.
+## Description
 
-With FOOD, you can add your favorite recipes and search other's by the ingredients you already have, saving yourself money and shopping time.
+Food. We all need it, we all eat it, but the average person throws away 300 lbs of food a year, valued at almost $2200. FOOD is designed to help make cooking more efficient by finding recipes for the food that you already have in your house, saving yourself money and shopping time.
+
+FOOD is a recipe finding site designed to put ingredients first that allows the user to search by ingredients they already have, making cooking less wasteful. Food allows the user to search the recipe database for recipes that contain their ingredients. To help the user find what they're looking for, it also allows them set dietary restrictions as a part of their user profile, such as Vegetarian, Vegan, or Dairy-Free, to help them find their recipe sooner. Additionally, it allows the user to favorite recipes to easily find them later one. FOOD is a crowd-sourced site, meaning anyone can add their favorite recipes to the database!
 
 
 ## Technologies Used
 
-This game some of the following languages, and should be supported in most browsers:
+The following is some of the languages used in this app:
+1. ReactJS
+1. Node.js
+1. Express
 1. HTML
 1. CSS
 1. Javascript
-1. Node.js
-1. Express
-1. ReactJS
 1. MongoDB
 1. Mongoose
 
 <img src="public/newRecipe.PNG">
 
-## Development issues
+## Development
 
-During the development of Pickups, the dev team decided to roll out certain features in future updates to make sure the current user experience is bug free.
+FOOD started as a solo class project, but has been grown and improved upon over time. FOOD uses a React front-end, a Node/Express.js back-end, MongoDB as it's database, and is currently being hosted on Heroku.
 
-1. Our original plan was to rely on a 3rd party API that had a thorough database of recipes and various other nutritional facts, however it was limited in the types of calls and queries we could make. We opted instead to create and store our own recipes in a Mongo database, and query those instead. In the future we plan on expanding the models to allow more query options to users, including various nutritional data.
-1. Not using the 3rd party API cut into the time we had to perfect other features. Our user profile did not get expanded or flushed out like originally planned to include a user's nutritional preferences, or their stock pantry items that are included in every search. Additionally we were not able to add in various search filters to the search function to better refine a user's results.
+During the development of FOOD, items were prioritized to put out a MVC to allow for scalability and future growth. Here are some items that will be added in the near future
+
+1. Including Regular Expressions to search criteria to get better matches on ingredients.
+1. Potential introduction of a 3rd party API to help grow the database of recipes.
+1. Updating of user dietary preferences.
+1. Allowing users to include stock items -- ingredients they always have on hand that can be optionally included in every search.
 
 
-## Find your next game here!
+## Find your next recipe here!
 
 You can FOOD here. Please feel free to add your favorite recipes, and stay tuned for more features coming soon!
 
 https://stark-sierra-34176.herokuapp.com/
-
-
-
-
-## Future Plans
-
-As we expand we want to more better refine the search results for the user to better find the type of food they're looking for. Additionally, we will be expanding the user profile to include more personalized results based on pre-selected criteria by the user.
