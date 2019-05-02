@@ -1,7 +1,7 @@
 .profile {
   display: grid;
   width: 100%;
-  grid-template-columns: 240px 240px 1fr;
+  grid-template-columns: 240px 240px 500px;
   grid-template-rows: 200px 1fr;
   grid-template-areas:
     "welcome preferences ."
@@ -10,6 +10,7 @@
 
 .welcome {
   grid-area: welcome;
+  font-size: 40px;
 }
 
 .userPreferences {
