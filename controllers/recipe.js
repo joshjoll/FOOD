@@ -47,13 +47,17 @@ async function filterRecipe(req, res) {
     for (let i = 0; i <  ingredient.length; i++) {
       recipes = recipes.filter(recipe => recipe.Ingredients.includes(ingredient[i]));
     }
-    user.vegetarian ? (vegetarian = recipes.filter(recipe => recipe.vegetarian == true)) : vegetarian = recipes;
-    user.vegan ? (vegan = vegetarian.filter(recipe => recipe.vegan == true)) : vegan = vegetarian;
-    user.ketogenic ? (ketogenic = vegan.filter(recipe => recipe.ketogenic == true)) : ketogenic = vegan;
-    user.dairyFree ? (dairyFree = ketogenic.filter(recipe => recipe.dairyFree == true)) : dairyFree = ketogenic;
-    user.glutenFree ? (glutenFree = dairyFree.filter(recipe => recipe.glutenFree == true)) : glutenFree = dairyFree;
-    console.log(dairyFree)
-    return dairyFree;
+    if (user) {
+      user.vegetarian ? (vegetarian = recipes.filter(recipe => recipe.vegetarian == true)) : vegetarian = recipes;
+      user.vegan ? (vegan = vegetarian.filter(recipe => recipe.vegan == true)) : vegan = vegetarian;
+      user.ketogenic ? (ketogenic = vegan.filter(recipe => recipe.ketogenic == true)) : ketogenic = vegan;
+      user.dairyFree ? (dairyFree = ketogenic.filter(recipe => recipe.dairyFree == true)) : dairyFree = ketogenic;
+      user.glutenFree ? (glutenFree = dairyFree.filter(recipe => recipe.glutenFree == true)) : glutenFree = dairyFree;
+      console.log(dairyFree)
+      return dairyFree;
+    } else {
+      return recipes
+    }
   }
   response = results();
   // console.log(response);

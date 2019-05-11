@@ -37,26 +37,56 @@ class App extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = e => {
+/*  handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state.user);
 
     this.setState({
-      ingredients: this.state.ingredients.concat([this.state.text]),/*[...this.state.ingredients, this.state.text],*/
       text: '',
-    }, async () => {
-      const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
-      // console.log(res)
-      const result = [...res]
-       this.setState({
-        recipeMatch : result
+    });
+    if (this.state.user) {
+      async () => {
+        const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
+        const result = [...res];
+        this.setState({
+          recipeMatch: result,
+        });
+      };
+    }
+  };*/
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    if (this.state.user) {
+      this.setState({
+        ingredients: this.state.ingredients.concat([this.state.text]),
+        text: '',
+      }, async () => {
+        const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
+        // console.log(res)
+        const result = [...res];
+        this.setState({
+          recipeMatch: result,
+        });
       });
-    },
-  )};
+    } else {
+      this.setState({
+        ingredients: this.state.ingredients.concat([this.state.text]),
+        text: '',
+      }, async () => {
+        const res  = await recipeService.filterRecipe(this.state.ingredients, null);
+        // console.log(res)
+        const result = [...res];
+        this.setState({
+          recipeMatch: result,
+        });
+      });
+    }
+  };
 
   handleRemove = e => {
     // e.preventDefault();
-    console.log(this.state.user);
+    /*console.log(this.state.user);*/
 
     let array = [...this.state.ingredients]
     let idx = array.indexOf(e);
@@ -97,6 +127,7 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({ user: null });
+    this.returnAll();
   };
 
 
