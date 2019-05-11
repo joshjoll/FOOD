@@ -9,12 +9,11 @@ module.exports = {
   refreshUser,
 };
 
+/*Used to update user data in state after adding recipe to favorites*/
 async function refreshUser(req, res) {
   const user = req.body;
-  console.log(user._id);
   try {
     const update = await User.findById(user._id);
-    console.log(update);
     res.json(update);
   } catch (err) {
     res.status(400).json(err);

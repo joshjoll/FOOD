@@ -6,14 +6,15 @@ const recipeCtrl = require('../../controllers/recipe');
 /*---------- Public Routes ----------*/
 router.post('/filter', recipeCtrl.filterRecipe);
 router.get('/getAll', recipeCtrl.getAll);
+router.post('/', recipeCtrl.newRecipe);
 
 
 /*---------- Protected Routes ----------*/
 router.use(require('../../config/auth'));
-router.post('/', checkAuth, recipeCtrl.newRecipe);
 
 
 function checkAuth(req, res, next) {
+  console.log(req.body)
   if (req.user) return next();
   return res.status(401).json({msg: 'Not Authorized'});
 }

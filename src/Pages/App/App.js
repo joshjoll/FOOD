@@ -26,7 +26,6 @@ class App extends Component {
 
   async returnAll() {
     const res  = await recipeService.getAll()
-    // console.log(res)
     const result = [...res];
     this.setState({
       recipeMatch : result
@@ -63,7 +62,6 @@ class App extends Component {
         text: '',
       }, async () => {
         const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
-        // console.log(res)
         const result = [...res];
         this.setState({
           recipeMatch: result,
@@ -75,7 +73,6 @@ class App extends Component {
         text: '',
       }, async () => {
         const res  = await recipeService.filterRecipe(this.state.ingredients, null);
-        // console.log(res)
         const result = [...res];
         this.setState({
           recipeMatch: result,
@@ -86,14 +83,13 @@ class App extends Component {
 
   handleRemove = e => {
     // e.preventDefault();
-    /*console.log(this.state.user);*/
+
 
     let array = [...this.state.ingredients]
     let idx = array.indexOf(e);
     array.splice(idx, 1);
     this.setState({ ingredients: array }, async () => {
       const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user)
-      // console.log(res[0].recipeName)
       const result = [...res]
        this.setState({
         recipeMatch : result

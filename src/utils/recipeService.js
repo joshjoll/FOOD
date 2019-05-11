@@ -13,13 +13,13 @@ function newRecipe(recipe) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + tokenService.getToken()
+      /*'Authorization': 'Bearer ' + tokenService.getToken()*/
     },
-    body: JSON.stringify(recipe)
+    body: JSON.stringify(recipe),
   };
   return fetch(BASE_URL, options)
   .then(res => {
-    console.log('recipeServices');
+    console.log('post api request');
     throw new Error('we messed up!');
   })
 }
