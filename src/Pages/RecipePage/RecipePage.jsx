@@ -15,7 +15,7 @@ class RecipePage extends Component {
   render() {
     return (
       <div className='SignupPage'>
-        <RecipeForm {...this.props} updateMessage={this.updateMessage} history={this.props.history}/>
+        <RecipeForm {...this.props} updateMessage={this.updateMessage} history={this.props.history} message={this.state.message}/>
 
       </div>
     );

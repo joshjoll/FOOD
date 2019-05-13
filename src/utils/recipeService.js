@@ -19,7 +19,8 @@ function newRecipe(recipe) {
   };
   return fetch(BASE_URL, options)
   .then(res => {
-    console.log('post api request');
+    return res.clone().json();
+
     throw new Error('we messed up!');
   })
 }
@@ -33,7 +34,8 @@ function filterRecipe(ingredients, user) {
     body: JSON.stringify({ ingredients, user }),
   };
   return fetch(BASE_URL + 'filter', options).then(res => {
-      return res.clone().json();
+    console.log('test');
+    return res.json();
   })
 }
 function getAll() {

@@ -30,12 +30,10 @@ async function newRecipe(req, res) {
   recipe.vegan = req.body.vegan ? true : false,
   recipe.dairyFree = req.body.dairyFree ? true : false,
   recipe.glutenFree = req.body.glutenFree ? true : false,
-  recipe.ketogenic = req.body.ketogenic ? true : false,
-  console.log(req.body );
-  console.log(recipe + 'recipe');
+  recipe.ketogenic = req.body.ketogenic ? true : false;
   try {
     await recipe.save();
-    res.json();
+    res.json('success');
   } catch (err) {
     res.status(400).json(err);
   }

@@ -33,22 +33,17 @@ class RecipeForm extends Component {
     });
   };
 
-  handleRecipe = (e) => {
-    console.log('working')
-  }
 
   handleSubmit = async (e) => {
     e.preventDefault();
     console.log('handle submit')
     try {
       await recipeService.newRecipe(this.state);
-      this.handleRecipe();
-      //replace with function for submitting recipe -- must split ingredient items
       console.log('submitted');
       this.props.history.push('/');
     } catch (err) {
       this.props.updateMessage(err.message);
-      console.log('error');
+      console.log(this.props.message);
     }
   }
 
