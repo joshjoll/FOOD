@@ -7,7 +7,7 @@ import Recipe from '../Recipe/Recipe';
 const UserNewRecipes = (props) => {
   return (
     <div >
-    <h3> {props.user.name}'s favorite recipes </h3>
+    <h3> {props.user.name}'s favorite recipes usernewfavorites</h3>
       {props.user.favorites ?
       <div className="UserNewRecipes">
       {props.user.favorites.map((recipe) =>

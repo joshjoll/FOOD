@@ -7,10 +7,10 @@ import Recipe from '../Recipe/Recipe';
 const UserRecipes = (props) => {
   return (
     <div className="userFavorites">
-    <h3> {props.user.name}'s favorite recipes </h3>
+    <h3> {props.user.name}'s favorite recipes user recipe </h3>
     <div >
-      {props.user.favorites ?
-      <div >
+      {(props.user.favorites.length > 0) ?
+      <div>
       {props.user.favorites.map((recipe) =>
         <Recipe
           recipe={recipe}
@@ -21,7 +21,9 @@ const UserRecipes = (props) => {
       )}
       </div>
     :
+      <div className="noRecipes">
       <h4> Once you favorite a recipe, it'll show up here </h4>
+      </div>
     }
     </div>
     </div>
