@@ -9,10 +9,13 @@ const RecipeArea = (props) => (
       <div className="recipeArea">
         {props.recipeMatch.map((recipe, idx) =>
           <Recipe
+            key={idx}
             handleFavorite={props.handleFavorite}
             recipe={recipe}
             index={idx}
             getUser={props.getUser}
+            recipeMatch={props.recipeMatch}
+            user={props.user}
           />
           )}
       </div>
@@ -22,14 +25,6 @@ const RecipeArea = (props) => (
       </div>
     }
   </div>
-  // <div className="recipeArea">
-  //
-  //   {props.recipeMatch.map((recipe) =>
-  //     <Recipe
-  //       recipe={recipe}
-  //     />
-  //   )}
-  // </div>
 );
 
 export default RecipeArea;

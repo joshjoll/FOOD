@@ -14,6 +14,9 @@ const UserRecipes = (props) => {
       {props.user.favorites.map((recipe) =>
         <Recipe
           recipe={recipe}
+          user={props.user}
+          recipeMatch={props.recipeMatch}
+          handleFavorite={props.handleFavorite}
         />
       )}
       </div>

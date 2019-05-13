@@ -100,8 +100,11 @@ class App extends Component {
   handleFavorite = idx => {
     const favorited = this.state.recipeMatch[idx];
     // console.log(favorited);
+    var freshUser = {...this.state.user}
+    freshUser.favorites.push(favorited);
+    console.log(freshUser);
+    this.setState({user: freshUser})
     userService.addFavorite(favorited, this.state.user);
-    this.refreshUser();
     console.log('end of handleFavorite')
   };
 
@@ -126,30 +129,9 @@ class App extends Component {
     this.returnAll();
   };
 
-
-/*To Delete*/
-  /*  handleSubmit = e => {
-      e.preventDefault();
-      this.setState({
-        ingredients: [...this.state.ingredients, this.state.text],
-        text: ''
-      }, () => recipeService.filterRecipe(this.state.ingredients));
-    };
-
-    handleRemove = e => {
-      console.log(e)
-      // e.preventDefault();
-      let array = [...this.state.ingredients]
-      let idx = array.indexOf(e);
-      array.splice(idx, 1);
-      this.setState({ ingredients: array });
-    };*/
-
-
   async componentDidMount() {
     const user = userService.getUser();
     this.setState({ user: await userService.refreshUser(user) });
-    /*this.setState({ user });*/
   }
 
   render() {
@@ -179,6 +161,8 @@ class App extends Component {
             <ProfilePage
               user={this.state.user}
               history={history}
+              recipeMatch={this.state.recipeMatch}
+              handleFavorite={this.handleFavorite}
             />
           } />
           <Route exact path='/login' render={({history}) =>

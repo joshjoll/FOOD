@@ -16,7 +16,7 @@ async function refreshUser(req, res) {
     const update = await User.findById(user._id);
     res.json(update);
   } catch (err) {
-    res.status(400).json(err);
+    
   }
 }
 
@@ -26,12 +26,12 @@ async function addFavorite(req, res) {
   console.log(newFavorite);
   const p = await User.findById(user._id)
   p.favorites.push(req.body.newFavorite);
-  // console.log(p.favorites);
 
   try {
-    await User.findByIdAndUpdate(user._id, { favorites: p.favorites })
-    const newUser = await User.findById(user._id);
-    // console.log(res.json(newUser))
+    console.log(p.favorites);
+    await User.findByIdAndUpdate(user._id, { favorites: p.favorites }).then(refreshUser(user));
+/*    const newUser = await User.findById(user._id);
+*/    // console.log(res.json(newUser))
     res.json('success');
   } catch (err) {
     res.status(400).json(err);

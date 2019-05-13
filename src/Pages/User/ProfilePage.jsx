@@ -15,7 +15,8 @@ const ProfilePage = (props) => {
         />
       <UserRecipes
         user={props.user}
-
+        recipeMatch={props.recipeMatch}
+        handleFavorite={props.handleFavorite}
       />
     </div>
   :
