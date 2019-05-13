@@ -24,6 +24,7 @@ class App extends Component {
 
   //Refactored code starts here
 
+
   async returnAll() {
     const res  = await recipeService.getAll()
     const result = [...res];
@@ -33,25 +34,10 @@ class App extends Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    var lowerText = e.target.value.toLowerCase();
+    console.log(lowerText);
+    this.setState({ [e.target.name]: e.target.value.toLowerCase() });
   };
-
-/*  handleSubmit = e => {
-    e.preventDefault();
-
-    this.setState({
-      text: '',
-    });
-    if (this.state.user) {
-      async () => {
-        const res  = await recipeService.filterRecipe(this.state.ingredients, this.state.user);
-        const result = [...res];
-        this.setState({
-          recipeMatch: result,
-        });
-      };
-    }
-  };*/
 
   handleSubmit = e => {
     e.preventDefault();
@@ -119,9 +105,7 @@ class App extends Component {
     this.setState({ user: userService.getUser() });
   };
 
-  handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+
 
   handleLogout = () => {
     userService.logout();

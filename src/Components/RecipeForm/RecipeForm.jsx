@@ -23,7 +23,7 @@ class RecipeForm extends Component {
     this.setState({
       // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value,
-      Ingredients: e.target.value.split(', ')
+      Ingredients: e.target.value.toString().toLowerCase().split(', '),
     });
   }
 

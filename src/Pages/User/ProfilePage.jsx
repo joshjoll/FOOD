@@ -1,7 +1,6 @@
 import React from 'react';
 import UserPreferences from '../../Components/UserPreferences/UserPreferences';
 import UserRecipes from '../../Components/UserRecipes/UserRecipes';
-import UserNewRecipes from '../../Components/UserNewRecipes/UserNewRecipes';
 // import { Link } from 'react-router-dom';
 
 
