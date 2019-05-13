@@ -74,7 +74,6 @@ class SignupForm extends Component {
               <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
             </div>
           </div>
-          //start buttons
           <div className="form-group">
             <div className="col-sm-12">
               <label htmlFor="vegetarian">Vegetarian</label>
@@ -105,7 +104,6 @@ class SignupForm extends Component {
               <input type="checkbox" className="form-control"  name="ketogenic" onChange={this.handleCheck} />
             </div>
           </div>
-          //end buttons
           <div className="form-group">
             <div className="col-sm-12 text-center">
               <button className="btn btn-default" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
