@@ -5,7 +5,7 @@ import Recipe from '../Recipe/Recipe';
 
 const RecipeArea = (props) => (
   <div>
-    {props.recipeMatch ?
+    {(props.recipeMatch.length > 0) ?
       <div className="recipeArea">
         {props.recipeMatch.map((recipe, idx) =>
           <Recipe
